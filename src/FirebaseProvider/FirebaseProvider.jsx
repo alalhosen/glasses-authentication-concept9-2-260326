@@ -3,7 +3,7 @@ import React from "react";
 const FirebaseProvider = () => {
   return (
     <div>
-      <h1>This is firebase provider.</h1>
+      <h2>This is firebase provider.</h2>
     </div>
   );
 };

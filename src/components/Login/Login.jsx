@@ -3,6 +3,12 @@ import React from "react";
 const Login = () => {
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    console.log(name, photo, email, password, confirmPassword);
   };
   return (
     <div className="w-[40%] mx-auto min-w[500px] border-2 border-red-500 p-2 rounded-xl text-left">
@@ -10,6 +16,7 @@ const Login = () => {
         <div>
           <p>Name</p>
           <input
+            name="name"
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full"
@@ -18,6 +25,7 @@ const Login = () => {
         <div>
           <p>Photo</p>
           <input
+            name="photo"
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full"
@@ -26,6 +34,7 @@ const Login = () => {
         <div>
           <p>Email</p>
           <input
+            name="email"
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full"
@@ -34,6 +43,7 @@ const Login = () => {
         <div>
           <p>Password</p>
           <input
+            name="password"
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full"
@@ -42,12 +52,15 @@ const Login = () => {
         <div>
           <p>Confirm password</p>
           <input
+            name="confirm password"
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full"
           />
         </div>
-        <button className="btn btn-primary w-full">Register</button>
+        <button type="submit" className="btn btn-primary w-full">
+          Register
+        </button>
       </form>
     </div>
   );

@@ -7,6 +7,7 @@ import Root from "./components/Root/Root.jsx";
 import Home from "./components/Home/Home.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
+import FirebaseProvider from "./FirebaseProvider/FirebaseProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,8 +32,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router}></RouterProvider>
+    <FirebaseProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </FirebaseProvider>
   </StrictMode>,
 );
 
