@@ -1,9 +1,20 @@
 import { useContext } from "react";
 import { AuthContext } from "../../FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
-  console.log(createUser);
+  const { createUser } = useContext(AuthContext);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -18,17 +29,18 @@ const Register = () => {
         </div>
 
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <form className="card-body">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Full Name</span>
               </label>
               <input
-                type="email"
+                type="text"
                 placeholder="full name"
                 className="input input-bordered"
-                required
+                {...register("fullName", { required: true })}
               />
+              {errors.fullName && <span className="text-red-500">This field is required</span>}
             </div>
             <div className="form-control">
               <label className="label">
@@ -38,8 +50,9 @@ const Register = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-                required
+             {...register("email", { required: true })}
               />
+              {errors.email && <span className="text-red-500">This field is required</span>}
             </div>
             <div className="form-control">
               <label className="label">
@@ -49,7 +62,7 @@ const Register = () => {
                 type="email"
                 placeholder="image url"
                 className="input input-bordered"
-                required
+                {...register("image")}
               />
             </div>
             <div className="form-control">
@@ -60,8 +73,9 @@ const Register = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
-                required
+                {...register("password", { required: true })}
               />
+              {errors.password && <span className="text-red-500">This field is required</span>}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
