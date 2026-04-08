@@ -15,7 +15,9 @@ const FirebaseProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={allValues}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={allValues}>
+      {children}
+      </AuthContext.Provider>
   );
 };
 
