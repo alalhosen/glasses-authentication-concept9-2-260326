@@ -8,12 +8,15 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { email, password } = data;
+    createUser(email, password)
+    .then(result=>{
+      console.log(result)
+    })
   };
 
   return (
@@ -40,7 +43,9 @@ const Register = () => {
                 className="input input-bordered"
                 {...register("fullName", { required: true })}
               />
-              {errors.fullName && <span className="text-red-500">This field is required</span>}
+              {errors.fullName && (
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -50,9 +55,11 @@ const Register = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-             {...register("email", { required: true })}
+                {...register("email", { required: true })}
               />
-              {errors.email && <span className="text-red-500">This field is required</span>}
+              {errors.email && (
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -75,7 +82,9 @@ const Register = () => {
                 className="input input-bordered"
                 {...register("password", { required: true })}
               />
-              {errors.password && <span className="text-red-500">This field is required</span>}
+              {errors.password && (
+                <span className="text-red-500">This field is required</span>
+              )}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
