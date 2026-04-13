@@ -1,11 +1,9 @@
-import React from 'react';
+import { useContext } from "react";
+import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 
 const useAuth = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+    const all=useContext(AuthContext)
+    return all
 };
 
 export default useAuth;
