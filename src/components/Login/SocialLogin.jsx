@@ -1,9 +1,11 @@
-import React from 'react';
 
 const SocialLogin = () => {
     return (
         <>
-            <div>Continue With</div>
+            <div className='divider'>Continue With</div>
+            <div>
+                <button className='btn btn-primary btn-outline'>Google</button>
+            </div>
         </>
     );
 };
