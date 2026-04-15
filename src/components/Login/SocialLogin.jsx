@@ -1,13 +1,20 @@
+import useAuth from "../../hooks/useAuth";
 
 const SocialLogin = () => {
-    return (
-        <>
-            <div className='divider'>Continue With</div>
-            <div>
-                <button className='btn btn-primary btn-outline'>Google</button>
-            </div>
-        </>
-    );
+  const { googleLogin } = useAuth();
+  return (
+    <>
+      <div className="divider">Continue With</div>
+      <div>
+        <button
+          onClick={() => googleLogin()}
+          className="btn btn-primary btn-outline"
+        >
+          Google
+        </button>
+      </div>
+    </>
+  );
 };
 
 export default SocialLogin;
