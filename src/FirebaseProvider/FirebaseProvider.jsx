@@ -32,11 +32,16 @@ const FirebaseProvider = ({ children }) => {
   const googleLogin = () => {
     return signInWithPopup(auth, googleProvider);
   };
+
   //github login
   const githubLogin = () => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  //logout
+  const logout = () => {
+    signOut(auth);
+  };
   //observer
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -50,7 +55,8 @@ const FirebaseProvider = ({ children }) => {
     createUser,
     signInUser,
     googleLogin,
-    githubLogin
+    githubLogin,
+    logout
   };
 
   return (
