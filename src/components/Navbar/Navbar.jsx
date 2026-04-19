@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
   const{logout,user}=useAuth()
   return (
-    <div>
+    <>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -54,10 +54,20 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          {
+            user?.email?<div>
+              <div className="avatar">
+  <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+  </div>
+</div>
           <a className="btn">Button</a>
+
+              <div/>
+          }
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

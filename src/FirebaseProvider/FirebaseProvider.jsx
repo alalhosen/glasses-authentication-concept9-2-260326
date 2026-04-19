@@ -56,7 +56,8 @@ const FirebaseProvider = ({ children }) => {
     signInUser,
     googleLogin,
     githubLogin,
-    logout
+    logout,
+    user
   };
 
   return (
