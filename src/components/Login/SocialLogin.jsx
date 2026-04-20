@@ -1,7 +1,7 @@
 import useAuth from "../../hooks/useAuth";
 
 const SocialLogin = () => {
-  const { googleLogin,githubLogin } = useAuth();
+  const { googleLogin, githubLogin } = useAuth();
   return (
     <>
       <div className="divider">Continue With</div>

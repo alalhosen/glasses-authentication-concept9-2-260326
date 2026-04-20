@@ -13,10 +13,9 @@ const Register = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    createUser(email, password)
-    .then(result=>{
-      console.log(result)
-    })
+    createUser(email, password).then((result) => {
+      console.log(result);
+    });
   };
 
   return (
@@ -94,10 +93,9 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
-              <label>
+            <label>
               <Link to="/login">Please Login</Link>
             </label>
-
           </form>
         </div>
       </div>

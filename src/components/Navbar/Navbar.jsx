@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-  const{logout,user}=useAuth()
+  const { logout, user } = useAuth();
   return (
     <>
       <div className="navbar bg-base-100">
@@ -40,6 +40,7 @@ const Navbar = () => {
           </div>
           <a className="btn btn-ghost text-xl">daisyUI</a>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
@@ -53,18 +54,22 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          {
-            user?.email?<div>
-              <div className="avatar">
-  <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-  </div>
-</div>
-          <a className="btn">Button</a>
 
-              <div/>
-          }
+        <div className="navbar-end">
+          {user?.email ? (
+            <div>
+              <div className="avatar">
+                <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+              </div>
+              <a className="btn">Logout</a>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm btn-ghost">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </>

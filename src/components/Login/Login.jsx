@@ -19,7 +19,6 @@ const Login = () => {
         console.log(result.user);
       })
       .catch((error) => {
-        
         console.log(error);
       });
   };
@@ -77,7 +76,7 @@ const Login = () => {
               <Link to="/register">Create an account</Link>
             </label>
           </form>
-            <SocialLogin></SocialLogin>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
