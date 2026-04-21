@@ -40,6 +40,7 @@ const FirebaseProvider = ({ children }) => {
 
   //logout
   const logout = () => {
+    setUser(null)
     signOut(auth);
   };
   //observer
