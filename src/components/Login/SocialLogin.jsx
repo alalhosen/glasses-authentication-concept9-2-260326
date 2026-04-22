@@ -1,7 +1,7 @@
 import useAuth from "../../hooks/useAuth";
 
 const SocialLogin = () => {
-  const { googleLogin, githubLogin } = useAuth();
+  const { googleLogin, githubLogin,twitterLogin } = useAuth();
   return (
     <>
       <div className="divider">Continue With</div>
@@ -18,6 +18,12 @@ const SocialLogin = () => {
           className="btn btn-secondary btn-sm btn-outline"
         >
           Github
+        </button>
+        <button
+          onClick={() => twitterLogin()}
+          className="btn btn-success btn-sm btn-outline"
+        >
+          Twitter
         </button>
       </div>
     </>

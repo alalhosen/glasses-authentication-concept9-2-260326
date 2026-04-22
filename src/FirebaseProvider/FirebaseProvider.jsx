@@ -7,6 +7,8 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
+  TwitterAuthProvider,
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
@@ -14,6 +16,7 @@ export const AuthContext = createContext(null);
 // social auth providers
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -38,9 +41,14 @@ const FirebaseProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+  //twitter login
+  const twitterLogin = () => {
+    return signInWithPopup(auth, twitterProvider);
+  };
+  
   //logout
   const logout = () => {
-    setUser(null)
+    setUser(null);
     signOut(auth);
   };
   //observer
@@ -59,6 +67,7 @@ const FirebaseProvider = ({ children }) => {
     githubLogin,
     logout,
     user,
+    twitterLogin
   };
 
   return (
