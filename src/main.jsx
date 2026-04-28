@@ -7,6 +7,9 @@ import Home from "./components/Home/Home.jsx";
 import Login from "./components/Login/Login.jsx";
 import Register from "./components/Register/Register.jsx";
 import FirebaseProvider from "./FirebaseProvider/FirebaseProvider.jsx";
+import Product from "./components/Product/Product.jsx";
+import ProductDetails from "./components/ProductDetails/ProductDetails.jsx";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,16 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:"/product",
+        element:<Product></Product>
+      },
+      {
+        path:"/productDetails",
+        element:<PrivateRoute>
+          <ProductDetails></ProductDetails> 
+        </PrivateRoute>
+      }
     ],
   },
 ]);
