@@ -1,10 +1,11 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuth();
   if (!user) {
-    return <h1>loading</h1>;
+    return <Navigate to='/login' state={}/>
   }
 
   return <div>{children}</div>;
