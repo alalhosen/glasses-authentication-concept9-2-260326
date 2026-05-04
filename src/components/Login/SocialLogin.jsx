@@ -5,11 +5,16 @@ const SocialLogin = () => {
   const { googleLogin, githubLogin, twitterLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const form = location?.state || "/";
 
   const handleSocialLogin = (socialProvider) => {
-    socialProvider().then((result) => {
-      console.log(result.user);
-    });
+    socialProvider()
+    .then((result) => {
+    if(result.user){
+      navigate(form)
+    }
+   })
+    };
   };
 
   return (
