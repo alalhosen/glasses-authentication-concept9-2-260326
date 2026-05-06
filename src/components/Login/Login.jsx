@@ -11,7 +11,10 @@ const Login = () => {
     handleSubmit,
     formState: { errors } } = useForm();
     
-    // navigation systems
+  // navigation system
+  const navigate = useNavigate();
+  const location = useLocation();
+  const form = location?.state || "/";
     
 
   // handle register
@@ -20,11 +23,10 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      if (result.user) {
+        navigate(form);
+      }
+    }); 
   };
 
   return (

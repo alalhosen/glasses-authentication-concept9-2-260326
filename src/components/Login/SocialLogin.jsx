@@ -10,7 +10,11 @@ const SocialLogin = () => {
   const form = location?.state || "/";
 
   const handleSocialLogin = (socialProvider) => {
-    socialProvider() 
+    socialProvider().then((result) => {
+      if (result.user) {
+        navigation(form);
+      }
+    });
   };
 };
 
