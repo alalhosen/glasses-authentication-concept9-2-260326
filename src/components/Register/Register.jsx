@@ -11,7 +11,7 @@ const Register = () => {
   } = useForm();
 
 
- // navigation system
+ // navigation systems
   const navigate = useNavigate();
   const location = useLocation();
   const form = location?.state || "/";

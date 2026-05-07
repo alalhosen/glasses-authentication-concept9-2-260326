@@ -20,7 +20,8 @@ const twitterProvider = new TwitterAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+  const [loading, setLoading] = useState(null);
+
   // create user
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -45,7 +46,7 @@ const FirebaseProvider = ({ children }) => {
   const twitterLogin = () => {
     return signInWithPopup(auth, twitterProvider);
   };
-  
+
   //logout
   const logout = () => {
     setUser(null);
@@ -67,7 +68,7 @@ const FirebaseProvider = ({ children }) => {
     githubLogin,
     logout,
     user,
-    twitterLogin
+    twitterLogin,
   };
 
   return (
