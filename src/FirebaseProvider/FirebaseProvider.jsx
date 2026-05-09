@@ -22,6 +22,8 @@ const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(null);
 
+  
+
   // create user
   const createUser = (email, password) => {
     setLoading(true);
