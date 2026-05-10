@@ -20,9 +20,9 @@ const twitterProvider = new TwitterAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  
+
 
   // create user
   const createUser = (email, password) => {
