@@ -22,8 +22,6 @@ const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
-
   // create user
   const createUser = (email, password) => {
     setLoading(true);
@@ -60,11 +58,13 @@ const FirebaseProvider = ({ children }) => {
   };
   //observer
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLoading(false);
       }
     });
+    return () => unsubscribe();
   }, []);
 
   const allValues = {
