@@ -21,6 +21,7 @@ const twitterProvider = new TwitterAuthProvider();
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log(loading)
 
   // create user
   const createUser = (email, password) => {
@@ -75,6 +76,7 @@ const FirebaseProvider = ({ children }) => {
     logout,
     user,
     twitterLogin,
+    loading
   };
 
   return (
