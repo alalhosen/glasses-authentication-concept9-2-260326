@@ -21,12 +21,28 @@ const twitterProvider = new TwitterAuthProvider();
 const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(loading)
+  console.log(loading);
 
   // create user
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  //update user profile
+  const updateUserProfile = () => {
+    updateProfile(auth.currentUser, {
+      displayName: "Jane Q. User",
+      photoURL: "https://example.com/jane-q-user/profile.jpg",
+    })
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+      });
   };
 
   //sign in user
@@ -76,7 +92,7 @@ const FirebaseProvider = ({ children }) => {
     logout,
     user,
     twitterLogin,
-    loading
+    loading,
   };
 
   return (
