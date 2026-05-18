@@ -30,10 +30,10 @@ const FirebaseProvider = ({ children }) => {
   };
 
   //update user profile
-  const updateUserProfile = () => {
-    updateProfile(auth.currentUser, {
-      displayName: "Jane Q. User",
-      photoURL: "https://example.com/jane-q-user/profile.jpg",
+  const updateUserProfile = (name, image) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL:image,
     })
       .then(() => {
         // Profile updated!
@@ -92,6 +92,7 @@ const FirebaseProvider = ({ children }) => {
     logout,
     user,
     twitterLogin,
+    updateUserProfile,
     loading,
   };
 
