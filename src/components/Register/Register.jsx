@@ -3,27 +3,29 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-  const { createUser } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-
- // navigation systems
+  // navigation systems
   const navigate = useNavigate();
   const location = useLocation();
   const form = location?.state || "/";
 
   const onSubmit = (data) => {
-    const { email, password } = data;
+    const { email, password, image, fullName } = data;
+
+    // create user & update profile
     createUser(email, password)
-    .then((result) => {
-      if (result.user) {
-        navigate(form);
-      }
-    }); 
+    .then(() => {
+      updateUserProfile(fullName, Image)
+      .then(() => {
+          navigate(form);
+      });
+    });
   };
 
   return (

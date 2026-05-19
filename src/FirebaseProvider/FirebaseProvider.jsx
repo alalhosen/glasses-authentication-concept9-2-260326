@@ -35,14 +35,7 @@ const FirebaseProvider = ({ children }) => {
       displayName: name,
       photoURL:image,
     })
-      .then(() => {
-        // Profile updated!
-        // ...
-      })
-      .catch((error) => {
-        // An error occurred
-        // ...
-      });
+
   };
 
   //sign in user
