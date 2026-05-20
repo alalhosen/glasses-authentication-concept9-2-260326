@@ -16,7 +16,7 @@ const SocialLogin = () => {
       }
     });
   };
-};
+;
 
 return (
   <>
@@ -44,5 +44,6 @@ return (
     </div>
   </>
 );
+}
 
 export default SocialLogin;
