@@ -21,7 +21,7 @@ const Register = () => {
     // create user & update profile
     createUser(email, password)
     .then(() => {
-      updateUserProfile(fullName, Image)
+      updateUserProfile(https://i.ibb.co.com/52dQwhz/doct.jpg, Image)
       .then(() => {
           navigate(form);
       });
